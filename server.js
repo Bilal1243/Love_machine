@@ -23,7 +23,7 @@ app.post('/loveYou/greatLove/enjoyYourLove/Have-A-Great-life', async (req, res) 
 
     const percentage = await calculate(name, lname);
     if(percentage === 0){
-        return res.json({ status: false, percentage });
+        return res.json({ novalue: true, percentage });
     }
     return res.json({ status: true, percentage });
 });
