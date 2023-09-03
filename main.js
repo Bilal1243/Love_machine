@@ -1,6 +1,7 @@
 let ownName = document.getElementById("name")
 let loverName = document.getElementById("lname")
 
+
 function show(){
     if(ownName.value == ""){
         alert("please fill your name");
@@ -21,6 +22,23 @@ function show(){
 }
 
 
+function calculateLovePercentage(ownName, loverName) {
+    ownName = ownName
+    loverName = loverName
+    console.log(ownName)
+    console.log(loverName)
+    let lovePercentage = 0;
+    
+    for (let i = 0; i < Math.min(ownName.length, loverName.length); i++) {
+        if (ownName[i] === loverName[i]) {
+            lovePercentage += 10; // You can adjust this percentage as needed
+        }
+    }
+
+    return Math.min(lovePercentage, 100); // Ensure the maximum percentage is 100
+}
+
+
 
 
 $("#subForm").submit((e)=>{
@@ -30,8 +48,8 @@ $("#subForm").submit((e)=>{
         data:$("#subForm").serialize(),
         method:"post",
         success:function (response){
-            console.log(ownName.value)
-            alert(ownName.value + " you loves him/her 75%")
+            const lovePercentage = calculateLovePercentage(ownName, loverName);
+            alert(ownName + ", you love " + loverName + " " + lovePercentage + "%");
             window.location.reload()
                 //window.location.href="http://127.0.0.1:5500/fake%20love%20test/sample.html"
         },
