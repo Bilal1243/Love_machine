@@ -30,6 +30,7 @@ $("#subForm").submit((e)=>{
         data:$("#subForm").serialize(),
         method:"post",
         success:function (response){
+            console.log(ownName.value)
             alert(ownName.value + " you loves him/her 75%")
             window.location.reload()
                 //window.location.href="http://127.0.0.1:5500/fake%20love%20test/sample.html"
