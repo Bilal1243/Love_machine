@@ -92,7 +92,23 @@
             location.href = '/'
           ])
         } else {
-          alert(data.message);
+          if(data.message){
+            Swal.fire(data.message).then(()=>[
+            location.href = '/'
+          ]) 
+          }
+          else{
+          Swal.fire({
+            title: 'oops!',
+            text: userData.name + ", you love "  + userData.lname  + "  " + data.percentage + "%",
+            imageUrl: 'https://www.animatedimages.org/data/media/503/animated-broken-heart-image-0019.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          }).then(()=>[
+            location.href = '/'
+          ])       
+        }
         }
       } catch (error) {
         alert(error.message);
